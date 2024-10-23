@@ -20,30 +20,21 @@
 		gtag('js', new Date());
 		gtag('config', 'G-DFD1NPCVYH');
 	</script>
-	<div class="header-menu sticky-header" style="padding-left:4.3%">
-		@* <div class="header-logo cursor-pointer">
-			<img layout="fill" src="/Themes/DefaultClean/Content/images/logo1.png" alt="logo" title="logo" placeholder="blur"
-				 href="index.html" />
-		</div> *@
+    <div class="header-menu sticky-header" style="padding-left: 5%; margin: 0 auto; width: 100%; border:none;">
         @await Component.InvokeAsync(typeof(TopMenuViewComponent))
-		<ul class="top-menu notmobile">
-			
-			@* <a class="header-menu__item" href="customer.html">
-				<span class="change"> Hội viên thân thiết</span>
-			</a>
-			<a class="header-menu__item" href="detail.html">
-				<span class="change">Thương hiệu thành viên</span>
-			</a> *@
-		</ul>
+        <ul class="top-menu notmobile">
+            <!-- Add your menu items here -->
+        </ul>
     </div>
-	<div class="master-wrapper-content" id="main" role="main" style=" margin-bottom:-7%">
+
+	<div class="master-wrapper-content" id="main" role="main" style=" margin-bottom:-7%;">
         @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.ContentBefore })
 
         @if (IsSectionDefined("Breadcrumb"))
         {
             @RenderSection("Breadcrumb") 
         }
-        <div class="master-column-wrapper">
+        <div class="master-column-wrapper" @* style="margin-right: -30%;margin-left: 8%;" *@>
             @RenderBody()
         </div>
         @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.ContentAfter })

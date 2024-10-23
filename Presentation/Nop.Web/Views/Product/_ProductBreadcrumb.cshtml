@@ -12,7 +12,9 @@
 }
 @if (Model.Enabled)
 {
-    <div class="breadcrumb">
+    <div class="breadcrumb"  style="
+    margin-left: 8%;margin-right:-30%;
+">
         <ul>
             @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.ProductBreadcrumbBefore, additionalData = Model })
             <li>

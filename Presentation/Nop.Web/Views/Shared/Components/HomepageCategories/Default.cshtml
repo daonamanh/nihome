@@ -2,27 +2,42 @@
 
 @using Nop.Core.Domain.Catalog
 
-@if (Model.Count > 0)
-{
-    <div class="category-grid home-page-category-grid">
-        <div class="item-grid">
-            @foreach (var item in Model)
-            {
-                <div class="item-box">
-                    <div class="category-item">
-                        <h2 class="title">
-                            <a href="@(Url.RouteUrl<Category>(new { SeName = item.SeName }))" title="@item.PictureModel.Title">
-                                @item.Name
-                            </a>
-                        </h2>
-                        <div class="picture">
-                            <a href="@(Url.RouteUrl<Category>(new { SeName = item.SeName }))" title="@item.PictureModel.Title">
-                                <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl" title="@item.PictureModel.Title" />
-                            </a>
+<div class="container" style="padding-left: 9%; margin-right: -14%;">
+    <div class="title_module_main" style="text-align: center;">
+        <h2 style="color:black">Đến với Nihome</h2>
+        <p>Đến với Nihome Sóc Sơn, du khách có thể hòa mình vào đêm lửa trại ấm áp, trải nghiệm những phút giây "sống chậm" khi buông câu bên hồ hay hít thở bầu không khí nguyên sơ của núi rừng yên tĩnh...</p>
+    </div>
+
+    <div class="box_about">
+        <p class="des" style="text-align:center">Cùng chúng tôi xem tiện nghi tại nơi đây nhé</p>
+    </div>
+
+    @if (Model.Count > 0)
+    {
+        <div class="category-grid home-page-category-grid">
+            <div class="item-grid">
+                @foreach (var item in Model)
+                {
+                    <div class="item-box">
+                        <div class="category-item">
+                           @*  <h2 class="title">
+                                <a href="@(Url.RouteUrl<Category>(new { SeName = item.SeName }))" title="@item.PictureModel.Title">
+                                    @item.Name
+                                </a>
+                            </h2> *@
+                            <div class="picture">
+                                <a href="@(Url.RouteUrl<Category>(new { SeName = item.SeName }))" title="@item.PictureModel.Title">
+                                    <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl" title="@item.PictureModel.Title" />
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
-    </div>
-}
+    }
+</div>
+
+
+
+

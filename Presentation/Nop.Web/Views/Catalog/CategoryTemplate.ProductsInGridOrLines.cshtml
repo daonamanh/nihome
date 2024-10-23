@@ -32,7 +32,10 @@
 {
     @if (Model.DisplayCategoryBreadcrumb)
     {
-        <div class="breadcrumb">
+        <div class="breadcrumb" style="
+    margin-left: 8%;
+    margin-right: -30%;
+        ">
             <ul>
                 <li>
                     <a href="@Url.RouteUrl("Homepage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")</a>

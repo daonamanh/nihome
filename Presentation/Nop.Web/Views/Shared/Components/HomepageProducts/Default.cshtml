@@ -1,58 +1,19 @@
 ﻿@model IList<ProductOverviewModel>
 
+
 @if (Model.Count > 0)
 {
-	// Display products with Sku containing "NE" (On Going Project)
-	var specialProducts = Model.Where(p => p.Sku != null && p.Sku.Contains("NE")).ToList();
-	if (specialProducts.Count > 0)
-	{
-		<div class="product-grid home-page-product-grid" style="padding-left:8%;margin-right:-20%">
-			<div class="title">
-				<img src="/Themes/DefaultClean/Content/images/icon-project2.png" alt="Project Icon"> <!-- Replace with your image URL -->
-				<strong style="font-weight:bold">On Going Project</strong>
-			</div>
-			<div class="item-grid">
-				@foreach (var item in specialProducts)
-				{
-					<div class="item-box">
-						@await Html.PartialAsync("_ProductBox", item)
-					</div>
-				}
-			</div>
-		</div>
-	}
-
-	// Display products with Sku containing "CO" (Completed Project)
-	var completedProducts = Model.Where(p => p.Sku != null && p.Sku.Contains("CO")).ToList();
-	if (completedProducts.Count > 0)
-	{
-		<div class="product-grid home-page-product-grid" style="padding-left:8%;margin-right:-20%">
-			<div class="title">
-				<img src="/Themes/DefaultClean/Content/images/icon-project2.png" alt="Project Icon"> <!-- Replace with your image URL -->
-				<strong style="font-weight:bold">Completed Project</strong>
-			</div>
-			<div class="item-grid">
-				@foreach (var item in completedProducts)
-				{
-					<div class="item-box">
-						@await Html.PartialAsync("_ProductBox", item)
-					</div>
-				}
-			</div>
-		</div>
-	}
 
 	// Display other products (Sku not containing "NE" or "CO")
 	var otherProducts = Model.Where(p => p.Sku == null || !p.Sku.Contains("NE") || !p.Sku.Contains("CO")).ToList();
 	if (otherProducts.Count > 0)
 	{
-		<div class="product-grid home-page-product-grid" style="padding-left:8%;margin-right:-20%">
+		<div class="product-grid home-page-product-grid" style="padding-left: 9%;margin-right: -27%;">
 			<div class="title">
-				@* <strong>@T("Homepage.Products")</strong> *@
 				<img src="/Themes/DefaultClean/Content/images/icon-project2.png" alt="Project Icon"> <!-- Replace with your image URL -->
 				<strong style="font-weight:bold">Activities</strong>
 			</div>
-			<div class="item-grid">
+			<div class="item-grid" style="padding-right:0%; margin-left:7%;">
 				@foreach (var item in otherProducts)
 				{
 					<div class="item-box">
@@ -61,5 +22,119 @@
 				}
 			</div>
 		</div>
+
 	}
+
+	// Display products with Sku containing "NE" (On Going Project)
+	var specialProducts = Model.Where(p => p.Sku != null && p.Sku.Contains("NE")).ToList();
+	if (specialProducts.Count > 0)
+	{
+		<div class="product-grid home-page-product-grid" style="padding-left: 9%;margin-right: -27%;">
+			<div class="title">
+				<img src="/Themes/DefaultClean/Content/images/icon-project2.png" alt="Project Icon"> <!-- Replace with your image URL -->
+				<strong style="font-weight:bold">On Going Project</strong>
+			</div>
+			<div class="item-grid" style="padding-right:0%">
+				@foreach (var item in specialProducts)
+				{
+					<div class="item-box">
+						@await Html.PartialAsync("	", item)
+					</div>
+				}
+			</div>
+		</div>
+
+
+	}
+
+	// Display products with Sku containing "CO" (Completed Project)
+	var completedProducts = Model.Where(p => p.Sku != null && p.Sku.Contains("CO")).ToList();
+	if (completedProducts.Count > 0)
+	{
+		<div class="product-grid home-page-product-grid" style="padding-left: 9%;margin-right: -27%;">
+			<div class="title">
+				<img src="/Themes/DefaultClean/Content/images/icon-project2.png" alt="Project Icon"> <!-- Replace with your image URL -->
+				<strong style="font-weight:bold">Completed Project</strong>
+			</div>
+			<div class="item-grid" style="padding-right:0%">
+				@foreach (var item in completedProducts)
+				{
+					<div class="item-box">
+						@await Html.PartialAsync("_ProductBox", item)
+					</div>
+				}
+			</div>
+		</div>
+
+
+	}
+
+
+
+	
 }
+
+
+
+@* <div class="container" style="margin-left:19%;">
+	<div class="title_module_main">
+		<h2 style="text-align:center">
+			<span>Hình ảnh khu nhà kính</span>
+		</h2>
+		<p style="text-align:center">
+			Đến với The Sun Homestay Sóc Sơn Du khách có thể hòa mình vào đem lửa trại ấm áp, trải nghiệm những phút giây "sống chậm" khi buông câu bên hồ hay hít thở bầu không khí nguyên sơ của núi rừng yên tĩnh và lắng nghe bản giao hưởng
+		</p>
+	</div>
+	<div class="gallery_content">
+		<div class="row">
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_1.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_1.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_2.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_2.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_3.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_3.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_1.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_1.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_2.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_2.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_3.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_3.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_1.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_1.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_2.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_2.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+			<div class="col-6 col-md-4 col-lg-4 mb-4">
+				<a href="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_3.jpg?1676261382973" data-fancybox="images2">
+					<img class="img-fluid rounded shadow" src="//bizweb.dktcdn.net/100/344/583/themes/894779/assets/gallery_3.jpg?1676261382973" alt="Phương tiện đi lại thuận tiện">
+				</a>
+			</div>
+		</div>
+	</div>
+
+</div> *@
+
+

@@ -42,7 +42,7 @@
             $('#ph-password-@Model.Id #password-@Model.Id').select().focus();
         });
 </script>
-    <div class="topic-password" id="ph-password-@Model.Id">
+@*     <div class="topic-password" id="ph-password-@Model.Id">
         <form asp-route="TopicAuthenticate" method="post" autocomplete="off">
             <input asp-for="Id" id="topic-@Model.Id" type="hidden"/>
             <div class="enter-password-title">
@@ -55,7 +55,7 @@
             <div class="password-error" id="password-error-@Model.Id" style="display: none;"></div>
         </form>
     </div>
-    <div class="topic-block" id="ph-topic-@Model.Id" style="padding-left:8%">
+ *@    <div class="topic-block" id="ph-topic-@Model.Id" style="padding-left:8%">
         <div class="topic-block-title" id="ph-title-@Model.Id">
             <h2>@Model.Title</h2>
         </div>
@@ -678,8 +678,11 @@ else
             @Html.Raw(Model.Body)
 			
         </div> *@
-		<div class="sc-jNHqnW horZKy filter-header-content-inner" style="margin-left:8%">
-			<div class="sc-aaqME bkiIxI">
+		@* 22/10/2024 *@
+@* 		<div class="sc-jNHqnW horZKy filter-header-content-inner" style="margin-left:3%;margin-top:-5%;">
+			<div class="sc-aaqME bkiIxI" style="
+    margin-left: inherit;
+	">
 				<div id="filter-location-container"
 					 class="sc-hmvnCu bPklzq filter-customer-box text-left sc-dYtuZ kCgBgd filter-customer-box--no-border">
 					<div class="filter-customer-box__title-wrapper">
@@ -691,22 +694,6 @@ else
 						</div>
 					</div>
 				</div>
-				<!-- ////popup -->
-				<!-- <div class="sc-hJhJFJ juoIRd responsive-popover filter-location-box__popover">
-					<div class="sc-cvlWTT kDRLXY">
-						<div class="sc-bUhFKy VRdFd">
-							<div id="filter-location-box__popover">
-								<div class="location-label">Tỉnh/Thành phố</div>
-								<div class="district-container d-flex flex-wrap mb-3">
-									<div class="district-item ">Hồ Chí Minh</div>
-									<div class="district-item ">Hà Nội</div>
-								</div>
-							</div>
-						</div>
-						<div class="sc-hRMWxn dgaUmM responsive-popover-content-footer"><button
-								class="sc-fTxOGA eHojqa apply-button">Xong</button></div>
-					</div>
-				</div> -->
 				<svg class="div-line"
 					 xmlns="http://www.w3.org/2000/svg" width="2"
 					 height="30" viewBox="0 0 2 30" fill="none">
@@ -715,7 +702,7 @@ else
 						  fill="#E5E7EB"></rect>
 				</svg>
 				<div id="filter-range-date-container"
-					 class="sc-bvFjSx hwVAeY filter-range-date__container filter-range-date__container--no-border sc-eZhRLC kqsdgl">
+					 class="sc-bvFjSx hwVAeY filter-range-date__container filter-range-date__container--no-border sc-eZhRLC kqsdgl" style="padding-right:20%;padding-left:6%;">
 					<div class="filter-range-date__content">
 						<div class="filter-range-date__content-item is-active">
 							<div class="filter-range-date-trigger__container">
@@ -757,66 +744,67 @@ else
 							  transform="rotate(-90 0.5 30)"
 							  fill="#E5E7EB"></rect>
 					</svg>
-				</div>
-				<div id="filter-occupancy-container"
-					 class="sc-hoHwyw buqzBj filter-occupancy-box text-left cursor-pointer sc-hAWBJg iZYSyC filter-occupancy-box--no-border">
-					<div class="filter-occupancy-box__title-wrapper">
-						<div class="filter-occupancy-box__desc-wrapper">
-							<div class="title visible-desktop">
-								Số khách
-							</div>
-							<div class="detail">
-								<div class="d-none d-md-block">
-									<div class="detail">
-										<div>
-											<span class="count">
-												2
-												<!-- -->
-											</span>
-											<span class="count-label">
-												Người
-												lớn
-											</span>
-										</div>
-										<span class="mr-1">,</span>
-										<div>
-											<span class="count">
-												0
-												<!-- -->
-											</span>
-											<span class="count-label">
-												Trẻ
-												em
-											</span>
-										</div>
-										<span class="mr-1">,</span>
-										<div>
-											<span class="count">
-												0
-												<!-- -->
-											</span>
-											<span class="count-label">
-												Em
-												bé
-											</span>
+					<div id="filter-occupancy-container"
+						 class="sc-hoHwyw buqzBj filter-occupancy-box text-left cursor-pointer sc-hAWBJg iZYSyC filter-occupancy-box--no-border">
+						<div class="filter-occupancy-box__title-wrapper">
+							<div class="filter-occupancy-box__desc-wrapper" style="width:max-content;">
+								<div class="title visible-desktop">
+									Số khách
+								</div>
+								<div class="detail">
+									<div class="d-none d-md-block">
+										<div class="detail">
+											<div>
+												<span class="count">
+													2
+													<!-- -->
+												</span>
+												<span class="count-label">
+													Người
+													lớn
+												</span>
+											</div>
+											<span class="mr-1">,</span>
+											<div>
+												<span class="count">
+													0
+													<!-- -->
+												</span>
+												<span class="count-label">
+													Trẻ
+													em
+												</span>
+											</div>
+											<span class="mr-1">,</span>
+											<div>
+												<span class="count">
+													0
+													<!-- -->
+												</span>
+												<span class="count-label">
+													Em
+													bé
+												</span>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="d-block d-md-none">
-									<span class="count">
-										2
-										<!-- -->
-										<span class="visible-on-mobile">Khách</span>
-									</span>
+									<div class="d-block d-md-none">
+										<span class="count">
+											2
+											<!-- -->
+											<span class="visible-on-mobile">Khách</span>
+										</span>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="sc-iRFsWr bUSPeg">
+
+ 		</div>
+			<div class="sc-iRFsWr bUSPeg" style="margin-right:-28%;">
 				<button class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root sc-leSONj ehxPr is-circle sc-dMOJrz jlPWpC filter-header__apply-button primary-btn ml-3 css-vfuakh"
-						tabindex="0" type="button">
+						tabindex="0" type="button" style="margin-right:-21%;">
 					<span class="d-none d-lg-block">
 						Tìm
 						phòng
@@ -824,7 +812,7 @@ else
 				</button>
 			</div>
 		</div>
-    </div>
+ *@    </div>
 	@* <div class="sc-cvlWTT cbAeBN container my-5">
 		<link href="~/Themes/DefaultClean/Content/css/homepage.css" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet" />

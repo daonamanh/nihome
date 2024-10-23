@@ -17,8 +17,8 @@
 		</div>
 	</div> *@ 
 
-	 <div style="display:flex;background: #f8f7f7;margin-left:-5%">
-		<div class="left-icon" style="width:60%;margin-top:6px">
+	 <div style="display:flex;background: #f8f7f7;margin-left:-11%;margin-right:-11%;">
+		<div class="left-icon" style="width:50%;margin-top:10px;padding-left:2%">
 			<ul style="float:left">
 				<li class="fb">
 					<a href="https://www.facebook.com/niconvn" target="_blank">
@@ -42,13 +42,13 @@
 				</li>
 				<li class="iconmori">
 					<a onclick="window.open('https://www.mori-group.jp')" target="_blank">
-						<img src="/themes/defaultclean/content/images/z5815621211914_19205f3b0285e45489744c73daa3c379.jpg" alt="mori icon" style="width:72px;height:27px" />
+						<img src="../Themes/DefaultClean/Content/images/edit-logo.png" alt="mori icon" style="width:115px;height:22px" />
 					</a>
 				</li>
 			</ul>
 		</div>
-		<div style="width:40%">
-			<div class="menu-container" style="display: flex; align-items: center; width: 100%;padding-left:23%">
+		<div style="width:23%">
+			<div class="menu-container" style="display: flex; align-items: center; width: 100%;padding-left:50%">
 				<!-- Block Menu -->
 				<nav class="navbar navbar-expand-lg navbar-light bg-light">
 					<div class="container-fluid">
@@ -82,7 +82,7 @@
 
 				<!-- Language Switcher -->
 				<div name="countries" id="countries" style="width: 180px;">
-					<ul class="language-list" style="display: flex; gap: 10px;">
+					<ul class="language-list" style="display: flex; gap: 0px;">
 						<li>
 							<a href="/changelanguage/1?returnurl=%2f" title="english">
 								<img title="english" alt="english" src="/themes/defaultclean/content/images/us.png">
@@ -93,6 +93,21 @@
 								<img title="viet nam" alt="viet nam" class="selected" src="/themes/defaultclean/content/images/vn.png">
 							</a>
 						</li>
+						<li>
+							<a href="/changelanguage/1?returnurl=%2f" title="english">
+								<img title="english" alt="english" src="~/images/flags/ma.png">
+							</a>
+						</li>
+						<li>
+							<a href="/changelanguage/2?returnurl=%2f" title="japan">
+								<img title="viet nam" alt="japan" class="selected" src="~/images/flags/jp.png">
+							</a>
+						</li>
+						<li>
+							<a href="/changelanguage/2?returnurl=%2f" title="japan">
+								<img title="viet nam" alt="japan" class="selected" src="~/images/flags/an.png">
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -100,10 +115,10 @@
 		</div>
 	</div> 
 	@await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderMiddle })
-	<div class="header-lower">
+	<div class="header-lower" style="width: -webkit-fill-available;margin-left:-9%;margin-right:-9%;">
 		<div class="header-logo">
 			@* @await Component.InvokeAsync(typeof(LogoViewComponent)) *@
-			<a class="logo-footer" href="http://nicon.com.vn/" title="Home"> <img class="image-style-none" style="width:250px;height:50px" src="/Themes/DefaultClean/Content/images/z5815621211914_19205f3b0285e45489744c73daa3c379.jpg" alt="Bouygues Construction"> </a>
+			<a class="logo-footer" href="http://nicon.com.vn/" title="Home"> <img class="image-style-none" style="width:187px;height:43px" src="/Themes/DefaultClean/Content/images/z5815621211914_19205f3b0285e45489744c73daa3c379.jpg" alt="Bouygues Construction"> </a>
 		</div>
 		<div class="search-box store-search-box">
 			@await Component.InvokeAsync(typeof(SearchBoxViewComponent))
