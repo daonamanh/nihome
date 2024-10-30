@@ -10,11 +10,6 @@
 }
 
 <div class="page registration-page">
-    @* <div class="page-title">
-        <h1>@T("Account.Register")</h1>
-    </div> *@
-
-    <!-- Back button with arrow icon -->
     <div style="display: flex; justify-content: flex-start; /* padding: 1rem; */ padding-left:inherit;">
         <a href="javascript:history.back()" style="text-decoration: none; color: #555; font-size: 1rem; display: flex; align-items: center;">
             <img src="../Themes/DefaultClean/Content/images/prev.png" alt="Back" style="width: 16px; height: 16px; margin-right: 0.5rem;">
@@ -34,10 +29,13 @@
         <form asp-route="Register" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" autocomplete="off">
             <div asp-validation-summary="ModelOnly" class="message-error"></div>
             <div class="fieldset">
-                <div class="title">
-                    <strong>@T("Account.YourPersonalDetails")</strong>
+               
+                <div class="title" style="
+    margin-left: 2%;
+">
+                    <strong style="font-size: 1.5rem;">@T("Account.YourPersonalDetails")</strong>
                 </div>
-                <div class="form-fields" style="margin-left:-70%;padding-top: unset;">
+                <div class="form-fields" style="margin-left:-70%;padding-top: unset; border:none;">
                     @* @if (Model.GenderEnabled)
                     {
                         <div class="inputs">
@@ -64,30 +62,37 @@
                     @if (Model.FirstNameEnabled)
                     {
                         <div class="inputs">
-                            <label asp-for="FirstName" asp-postfix=":" style="display: block; margin-left:10%"></label>
-                            <input asp-for="FirstName" style="
-    margin-left: 44%;
-    width: 56%;
-    " />
-                            @if (Model.FirstNameRequired)
-                            {
-                                <nop-required />
-                            }
-                            <span asp-validation-for="FirstName" style="margin-left:14%;"></span>
+                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 0.5rem; font-weight: bold; text-align: left; @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en" ? "padding-left: 9%;" : "")">
+                                <label asp-for="FirstName" asp-postfix=":" style="display: block; margin: 0;"></label>
+                                @if (Model.FirstNameRequired)
+                                {
+                                    <nop-required style="margin-left: -1%;" />
+                                }
+                            </div>
+
+
+
+                            <input asp-for="FirstName" style="margin-left: 44%; width: 56%; border-radius: 5px;" />
+
+                          
+                            <span asp-validation-for="FirstName" style="margin-left: 14%;"></span>
                         </div>
                     }
                     @if (Model.LastNameEnabled)
                     {
                         <div class="inputs">
-                            <label asp-for="LastName" asp-postfix=":" style="display: block; margin-left:-1%"></label>
+                            <div style="display: flex; align-items: center; margin-bottom: 5px; @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en" ? "padding-left: 9%;" : "")">
+                                <label asp-for="LastName" asp-postfix=":" style="display: block;margin-bottom: 0.5rem; font-weight: bold"></label>
+                                @if (Model.LastNameRequired)
+                                {
+                                    <nop-required style="margin-left:-1%;" />
+                                }
+                            </div>
                             <input asp-for="LastName" style="
     margin-left: 44%;
     width: 56%;
-        " />
-                            @if (Model.LastNameRequired)
-                            {
-                                <nop-required />
-                            }
+        border-radius:5px;" />
+                           
                             <span asp-validation-for="LastName" style="margin-left:4%;"></span>
                         </div>
                     }
@@ -112,12 +117,16 @@
                         </div>
                     }
                     <div class="inputs">
-                        <label asp-for="Email" asp-postfix=":" style="display: block; margin-left:3%;"></label>
+                        <div style="display: flex; align-items: center; margin-left: 4%;margin-bottom: 0.5rem; font-weight: bold">
+                            <label asp-for="Email" asp-postfix=":" style="margin-right: 5px;"></label>
+                            <nop-required style="margin-left:-1%;" />
+                        </div>
+
                         <input asp-for="Email" style="
     margin-left: 44%;
     width: 56%;
-        " />
-                        <nop-required />
+           border-radius:5px;" />
+                      
                         <span asp-validation-for="Email" style="
     margin-left: 8%;
 "></span>
@@ -293,7 +302,7 @@
                         @if (Model.PhoneEnabled)
                         {
                             <div class="inputs">
-                                <label asp-for="Phone" asp-postfix=":"></label>
+                                <label asp-for="Phone" asp-postfix=":" style="margin-bottom: 5px;"></label>
                                 <input asp-for="Phone" />
                                 @if (Model.PhoneRequired)
                                 {
@@ -355,24 +364,39 @@
                 </div>
             }
             <div class="fieldset">
-                @* <div class="title">
-                    <strong>@T("Account.YourPassword")</strong>
-                </div> *@
-                <div class="form-fields" style="
-    margin-top: -31%;
-">
+                <div class="form-fields" style="margin-top: -31%; border: none;">
                     <div class="inputs">
-                        <label asp-for="Password" asp-postfix=":" style="display:block;margin-left:-65%"></label>
-                        <input asp-for="Password"  />
-                        <nop-required />
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem; font-weight: bold">
+
+                            <label asp-for="Phone" asp-postfix=":" style="display: block; margin-left: -62%; margin-bottom:5px;  @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en" ? "margin-left: -69%;" : "")"></label>
+                            <nop-required style="margin-left:-3%;" />
+                        </div>
+
+                        <input asp-for="Phone" style="margin-left: 1%; width: 99%; border-radius:5px;" />
+                      
+                        <span asp-validation-for="Phone" style="margin-left: 8%;"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem; font-weight: bold">
+                            <label asp-for="Password" asp-postfix=":" style="display: block; margin-left: -65%;margin-bottom: 5px; @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en" ? "margin-left: -62%;" : "")"></label>
+                            <nop-required style="margin-left:-3%;" />
+                        </div>
+                        <input asp-for="Password" style="border-radius:5px;"/>
+                      
                         <span asp-validation-for="Password"></span>
                     </div>
+
                     <div class="inputs">
-                        <label asp-for="ConfirmPassword" asp-postfix=":" style="display:block;margin-left:-45%"></label>
-                        <input asp-for="ConfirmPassword" />
-                        <nop-required />
-                        <span asp-validation-for="ConfirmPassword" style="margin-left:-64%;"></span>
+                        <div style="display: flex; align-items: center;  margin-bottom: 0.5rem; font-weight: bold">
+                        <label asp-for="ConfirmPassword" asp-postfix=":" style="display: block; margin-left: -43%; margin-bottom: 5px;"></label>
+                            <nop-required style="margin-left:-3%;" />
+                        </div>
+                        <input asp-for="ConfirmPassword" style="border-radius:5px;" />
+                       
+                        <span asp-validation-for="ConfirmPassword" style=" margin-left: -58%; "></span>
                     </div>
+
                     @if (Model.DisplayCaptcha)
                     {
                         <nop-captcha />
@@ -383,6 +407,7 @@
                     }
                 </div>
             </div>
+
 
             @if (Model.AcceptPrivacyPolicyEnabled || Model.GdprConsents.Count > 0)
             {
@@ -464,7 +489,7 @@
             }
 
             <div class="buttons" style=" margin-top:-15%;">
-                <button type="submit" name="register-button" id="register-button" class="button-1 register-next-step-button" style="background-color: #e35c63;width:-webkit-fill-available">@T("Account.Register.Button")</button>
+                <button type="submit" name="register-button" id="register-button" class="button-1 register-next-step-button" style="background-color:#e35c63;width: 91%;border-radius:5px;margin-left: 5%;">@T("Account.Register.Button")</button>
             </div>
         </form>
         <div class="external-authentication">
