@@ -1,4 +1,4 @@
-
+﻿
 
 /*********** CSS RESET **********/
 
@@ -70,14 +70,42 @@ script {
 /*********** GLOBAL STYLES **********/
 
 
-
+/*custome font khoaqd
+*/
 body {
-  max-width: 100%;
-  overflow-x: hidden;
-  background-color: #fff;
-  font: normal 14px Arial, Helvetica, sans-serif;
-  color: #777;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #fff;
+    font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif; 
+    font-size: 14px; 
+    color: #777;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    font-weight: bold; 
+    color: #333;
+}
+
+
+a {
+    font-family: 'Open Sans', sans-serif; 
+    color: #007bff;
+    text-decoration: none; 
+}
+
+    a:hover {
+        color: #0056b3; 
+        text-decoration: underline; 
+    }
+
+.product-grid .item-box {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   color: #444;
@@ -287,7 +315,7 @@ label, label + * {
 .form-fields {
   position: relative;
   border-top: 1px solid #e6e6e6;
-  background-color: #f9f9f9;
+/*  background-color: #f9f9f9;*/
   padding: 30px 15px;
 }
 
@@ -3397,7 +3425,7 @@ label, label + * {
 }
 
 .home-page .topic-block {
-  margin: 0 0 50px;
+  //margin: 0 0 50px;
 }
 
 .popup-window .topic-page {
@@ -3740,7 +3768,7 @@ label, label + * {
 }
 
 .login-page .returning-wrapper .buttons {
-  background-color: #fff;
+/*  background-color: #fff;*/
   padding: 30px 0;
 }
 
@@ -6843,14 +6871,7 @@ label, label + * {
   }
 }
 
-@media all and (min-width: 1000px){
-    .item-box{
-        width:100% !important;
-    }
-    .item-grid{
-        display:grid;
-    }
-} 
+
 
 
 
@@ -7189,7 +7210,6 @@ label, label + * {
 
   .item-box:nth-child(3n+1) {
     clear: both;
-    /*width:auto;*/
   }
 
   .product-list .item-box {

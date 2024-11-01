@@ -4,21 +4,21 @@
 	<a class="skip" href="#main">@T("Header.SkipNavigation.Text")</a>
 	@await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderBefore })
 
-	    @* <div class="header-upper">
-		<div class="header-selectors-wrapper">
-			@await Component.InvokeAsync(typeof(TaxTypeSelectorViewComponent))
-			@await Component.InvokeAsync(typeof(CurrencySelectorViewComponent))
-			@await Component.InvokeAsync(typeof(LanguageSelectorViewComponent))
-			@await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderSelectors })
-		</div>
-		<div class="header-links-wrapper">
-			@await Component.InvokeAsync(typeof(HeaderLinksViewComponent))
-			@await Component.InvokeAsync(typeof(FlyoutShoppingCartViewComponent))
-		</div>
-	</div> *@ 
+	@* <div class="header-upper">
+	<div class="header-selectors-wrapper">
+	@await Component.InvokeAsync(typeof(TaxTypeSelectorViewComponent))
+	@await Component.InvokeAsync(typeof(CurrencySelectorViewComponent))
+	@await Component.InvokeAsync(typeof(LanguageSelectorViewComponent))
+	@await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderSelectors })
+	</div>
+	<div class="header-links-wrapper">
+	@await Component.InvokeAsync(typeof(HeaderLinksViewComponent))
+	@await Component.InvokeAsync(typeof(FlyoutShoppingCartViewComponent))
+	</div>
+	</div> *@
 
-	 <div style="display:flex;background: #f8f7f7;margin-left:-5%">
-		<div class="left-icon" style="width:60%;margin-top:6px">
+	<div style="display:flex;background: #f8f7f7;margin-left:-11%;margin-right:-11%;">
+		<div class="left-icon" style="width:50%;margin-top:10px;padding-left:2%">
 			<ul style="float:left">
 				<li class="fb">
 					<a href="https://www.facebook.com/niconvn" target="_blank">
@@ -42,13 +42,13 @@
 				</li>
 				<li class="iconmori">
 					<a onclick="window.open('https://www.mori-group.jp')" target="_blank">
-						<img src="/themes/defaultclean/content/images/z5815621211914_19205f3b0285e45489744c73daa3c379.jpg" alt="mori icon" style="width:72px;height:27px" />
+						<img src="../Themes/DefaultClean/Content/images/edit-logo.png" alt="mori icon" style="width:115px;height:22px" />
 					</a>
 				</li>
 			</ul>
 		</div>
-		<div style="width:40%">
-			<div class="menu-container" style="display: flex; align-items: center; width: 100%;padding-left:23%">
+		<div style="width:23%">
+			<div class="menu-container" style="display: flex; align-items: center; width: 100%;padding-left:50%">
 				<!-- Block Menu -->
 				<nav class="navbar navbar-expand-lg navbar-light bg-light">
 					<div class="container-fluid">
@@ -82,7 +82,7 @@
 
 				<!-- Language Switcher -->
 				<div name="countries" id="countries" style="width: 180px;">
-					<ul class="language-list" style="display: flex; gap: 10px;">
+					<ul class="language-list" style="display: flex; gap: 0px;">
 						<li>
 							<a href="/changelanguage/1?returnurl=%2f" title="english">
 								<img title="english" alt="english" src="/themes/defaultclean/content/images/us.png">
@@ -93,25 +93,40 @@
 								<img title="viet nam" alt="viet nam" class="selected" src="/themes/defaultclean/content/images/vn.png">
 							</a>
 						</li>
+						<li>
+							<a href="/changelanguage/1?returnurl=%2f" title="english">
+								<img title="english" alt="english" src="~/images/flags/ma.png">
+							</a>
+						</li>
+						<li>
+							<a href="/changelanguage/2?returnurl=%2f" title="japan">
+								<img title="viet nam" alt="japan" class="selected" src="~/images/flags/jp.png">
+							</a>
+						</li>
+						<li>
+							<a href="/changelanguage/2?returnurl=%2f" title="japan">
+								<img title="viet nam" alt="japan" class="selected" src="~/images/flags/an.png">
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
 
 		</div>
-	</div> 
+	</div>
 	@await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderMiddle })
-	<div class="header-lower">
+	<div class="header-lower" style="width: -webkit-fill-available;margin-left:-9%;margin-right:-9%;">
 		<div class="header-logo">
 			@* @await Component.InvokeAsync(typeof(LogoViewComponent)) *@
-			<a class="logo-footer" href="http://nicon.com.vn/" title="Home"> <img class="image-style-none" style="width:250px;height:50px" src="/Themes/DefaultClean/Content/images/z5815621211914_19205f3b0285e45489744c73daa3c379.jpg" alt="Bouygues Construction"> </a>
+			<a class="logo-footer" href="http://nicon.com.vn/" title="Home"> <img class="image-style-none" style="width:187px;height:43px" src="/Themes/DefaultClean/Content/images/z5815621211914_19205f3b0285e45489744c73daa3c379.jpg" alt="Bouygues Construction"> </a>
 		</div>
 		<div class="search-box store-search-box">
 			@await Component.InvokeAsync(typeof(SearchBoxViewComponent))
 		</div>
 	</div>
 	@await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.HeaderAfter })
-@* 	<div class="region-inner clearfix"> <div id="block-bouygues-main-top-social-links" class="block block-bouygues-main no-title odd first block-count-3 block-region-sidebar-first block-top-social-links"> <div class="block-inner clearfix"> <div class="left-icon"> <ul> <li class="fb"><a href="https://www.facebook.com/niconvn" target="_blank"></a></li> <li class="google"><a href="https://plus.google.com/" target="_blank"></a> </li> <li class="youtube"><a href="https://www.youtube.com/" target="_blank"></a> </li> <li class="loginuser"><a title="login" href="http://nicon.com.vn/login"></a> </li> <li class="iconmori"><a onclick="window.open(&#39;https://www.mori-group.jp&#39;)" target="_blank"></a></li> </ul> </div> </div> </div> <div name="countries" id="countries" style="width:180px;"> <ul class="language-list"> <li> <a href="http://nicon.com.vn/changelanguage/1?returnurl=%2f" title="english"> <img title="english" alt="english" src="nicon/images/us.png"> </a> </li> <li> <a href="http://nicon.com.vn/changelanguage/2?returnurl=%2f" title="viet nam"> <img title="viet nam" alt="viet nam" class="selected" src="nicon/images/vn.png"> </a> </li> <li> <a href="http://nicon.com.vn/changelanguage/3?returnurl=%2f" title="china"> <img title="china" alt="china" src="nicon/images/cn.png"> </a> </li> <li> <a href="http://nicon.com.vn/changelanguage/4?returnurl=%2f" title="korea"> <img title="korea" alt="korea" src="nicon/images/kr.png"> </a> </li> <li> <a href="http://nicon.com.vn/changelanguage/5?returnurl=%2f" title="japan"> <img title="japan" alt="japan" src="nicon/images/jp.png"> </a> </li> </ul> </div> <div id="block-menu-menu-main-menu-2" class="block block-menu no-title odd last block-count-5 block-region-sidebar-first block-menu-main-menu-2" role="navigation"> <div class="block-inner clearfix"> <div class="block-content content"> <ul class="menu clearfix"> <li class="expanded color-default menu-depth-1 menu-item-1795"> <a>dịch vụ</a><span class="menu_plus show-responsive"><a href="http://nicon.com.vn/en">menu plus</a></span> <ul class="menu clearfix"> <li class="first leaf color-default menu-depth-2 menu-item-1797"><a href="http://nicon.com.vn/designandbuildcontractor">nhà thầu thiết kế &amp; xây dựng</a></li> <li class="leaf color-default menu-depth-2 menu-item-1798"><a href="http://nicon.com.vn/servicemaincontractor">nhà thầu chính</a></li> <li class="leaf color-default menu-depth-2 menu-item-1799"><a href="http://nicon.com.vn/servicegeneralcontractor">dịch vụ nhà thầu chính</a></li> <li class="leaf color-default menu-depth-2 menu-item-1799"><a href="http://nicon.com.vn/servicemepcontractor">nhà thầu mep (cơ điện)</a></li> </ul> </li> <li class="expanded color-default menu-depth-1 menu-item-1795"> <a href="http://nicon.com.vn/news">tin tức</a> </li> <li class="last leaf color-default menu-depth-1 menu-item-1796"> <a href="http://nicon.com.vn/supplier">nhà cung cấp</a> </li> </ul> </div> </div> </div> </div>
- *@
+	@* 	<div class="region-inner clearfix"> <div id="block-bouygues-main-top-social-links" class="block block-bouygues-main no-title odd first block-count-3 block-region-sidebar-first block-top-social-links"> <div class="block-inner clearfix"> <div class="left-icon"> <ul> <li class="fb"><a href="https://www.facebook.com/niconvn" target="_blank"></a></li> <li class="google"><a href="https://plus.google.com/" target="_blank"></a> </li> <li class="youtube"><a href="https://www.youtube.com/" target="_blank"></a> </li> <li class="loginuser"><a title="login" href="http://nicon.com.vn/login"></a> </li> <li class="iconmori"><a onclick="window.open(&#39;https://www.mori-group.jp&#39;)" target="_blank"></a></li> </ul> </div> </div> </div> <div name="countries" id="countries" style="width:180px;"> <ul class="language-list"> <li> <a href="http://nicon.com.vn/changelanguage/1?returnurl=%2f" title="english"> <img title="english" alt="english" src="nicon/images/us.png"> </a> </li> <li> <a href="http://nicon.com.vn/changelanguage/2?returnurl=%2f" title="viet nam"> <img title="viet nam" alt="viet nam" class="selected" src="nicon/images/vn.png"> </a> </li> <li> <a href="http://nicon.com.vn/changelanguage/3?returnurl=%2f" title="china"> <img title="china" alt="china" src="nicon/images/cn.png"> </a> </li> <li> <a href="http://nicon.com.vn/changelanguage/4?returnurl=%2f" title="korea"> <img title="korea" alt="korea" src="nicon/images/kr.png"> </a> </li> <li> <a href="http://nicon.com.vn/changelanguage/5?returnurl=%2f" title="japan"> <img title="japan" alt="japan" src="nicon/images/jp.png"> </a> </li> </ul> </div> <div id="block-menu-menu-main-menu-2" class="block block-menu no-title odd last block-count-5 block-region-sidebar-first block-menu-main-menu-2" role="navigation"> <div class="block-inner clearfix"> <div class="block-content content"> <ul class="menu clearfix"> <li class="expanded color-default menu-depth-1 menu-item-1795"> <a>dịch vụ</a><span class="menu_plus show-responsive"><a href="http://nicon.com.vn/en">menu plus</a></span> <ul class="menu clearfix"> <li class="first leaf color-default menu-depth-2 menu-item-1797"><a href="http://nicon.com.vn/designandbuildcontractor">nhà thầu thiết kế &amp; xây dựng</a></li> <li class="leaf color-default menu-depth-2 menu-item-1798"><a href="http://nicon.com.vn/servicemaincontractor">nhà thầu chính</a></li> <li class="leaf color-default menu-depth-2 menu-item-1799"><a href="http://nicon.com.vn/servicegeneralcontractor">dịch vụ nhà thầu chính</a></li> <li class="leaf color-default menu-depth-2 menu-item-1799"><a href="http://nicon.com.vn/servicemepcontractor">nhà thầu mep (cơ điện)</a></li> </ul> </li> <li class="expanded color-default menu-depth-1 menu-item-1795"> <a href="http://nicon.com.vn/news">tin tức</a> </li> <li class="last leaf color-default menu-depth-1 menu-item-1796"> <a href="http://nicon.com.vn/supplier">nhà cung cấp</a> </li> </ul> </div> </div> </div> </div>
+	*@
 
 
 </div>

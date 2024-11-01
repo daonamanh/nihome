@@ -1,8 +1,8 @@
 ﻿@model RegisterModel
 
 @{
-    Layout = "_ColumnsOne";
-
+    // Layout = "_ColumnsOne";
+    Layout = "~/Views/Shared/NoHeaderFooter.cshtml";
     //title
     NopHtml.AddTitleParts(T("PageTitle.Register").Text);
     //page class
@@ -10,19 +10,33 @@
 }
 
 <div class="page registration-page">
-    <div class="page-title">
-        <h1>@T("Account.Register")</h1>
+    <div style="display: flex; justify-content: flex-start; /* padding: 1rem; */ padding-left:inherit;">
+        <a href="javascript:history.back()" style="text-decoration: none; color: #555; font-size: 1rem; display: flex; align-items: center;">
+            <img src="../Themes/DefaultClean/Content/images/prev.png" alt="Back" style="width: 16px; height: 16px; margin-right: 0.5rem;">
+            Quay lại
+        </a>
+    </div>
+
+    <div class="page-title" style="display:flex;justify-content:center; width: -webkit-fill-available;">
+        <div class="header-logo">
+            <a class="logo-footer" href="#" title="Home" style="text-decoration: none;  padding-top:10%;">
+                <img class="image-style-none" style="width:187px;height:43px" src="../Themes/DefaultClean/Content/images/Remove-bg.ai_1729840192443.png" alt="Bouygues Construction">
+            </a>
+        </div>
     </div>
     <div class="page-body">
         @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.RegisterTop, additionalData = Model })
         <form asp-route="Register" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" autocomplete="off">
             <div asp-validation-summary="ModelOnly" class="message-error"></div>
             <div class="fieldset">
-                <div class="title">
-                    <strong>@T("Account.YourPersonalDetails")</strong>
+               
+                <div class="title" style="
+    margin-left: 2%;
+">
+                    <strong style="font-size: 1.5rem;">@T("Account.YourPersonalDetails")</strong>
                 </div>
-                <div class="form-fields">
-                    @if (Model.GenderEnabled)
+                <div class="form-fields" style="margin-left:-70%;padding-top: unset; border:none;">
+                    @* @if (Model.GenderEnabled)
                     {
                         <div class="inputs">
                             <label for="gender">@T("Account.Fields.Gender"):</label>
@@ -44,35 +58,48 @@
                                 }
                             </div>
                         </div>
-                    }
+                    } *@
                     @if (Model.FirstNameEnabled)
                     {
                         <div class="inputs">
-                            <label asp-for="FirstName" asp-postfix=":"></label>
-                            <input asp-for="FirstName" />
-                            @if (Model.FirstNameRequired)
-                            {
-                                <nop-required />
-                            }
-                            <span asp-validation-for="FirstName"></span>
+                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 0.5rem; font-weight: bold; text-align: left; @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en" ? "padding-left: 9%;" : "")">
+                                <label asp-for="FirstName" asp-postfix=":" style="display: block; margin: 0;"></label>
+                                @if (Model.FirstNameRequired)
+                                {
+                                    <nop-required style="margin-left: -1%;" />
+                                }
+                            </div>
+
+
+
+                            <input asp-for="FirstName" style="margin-left: 44%; width: 56%; border-radius: 5px;" />
+
+                          
+                            <span asp-validation-for="FirstName" style="margin-left: 14%;"></span>
                         </div>
                     }
                     @if (Model.LastNameEnabled)
                     {
                         <div class="inputs">
-                            <label asp-for="LastName" asp-postfix=":"></label>
-                            <input asp-for="LastName" />
-                            @if (Model.LastNameRequired)
-                            {
-                                <nop-required />
-                            }
-                            <span asp-validation-for="LastName"></span>
+                            <div style="display: flex; align-items: center; margin-bottom: 5px; @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en" ? "padding-left: 9%;" : "")">
+                                <label asp-for="LastName" asp-postfix=":" style="display: block;margin-bottom: 0.5rem; font-weight: bold"></label>
+                                @if (Model.LastNameRequired)
+                                {
+                                    <nop-required style="margin-left:-1%;" />
+                                }
+                            </div>
+                            <input asp-for="LastName" style="
+    margin-left: 44%;
+    width: 56%;
+        border-radius:5px;" />
+                           
+                            <span asp-validation-for="LastName" style="margin-left:4%;"></span>
                         </div>
                     }
                     @if (Model.DateOfBirthEnabled)
                     {
                         <div class="inputs date-of-birth">
-                            <label>@T("Account.Fields.DateOfBirth"):</label>
+                            <label>@T("Account.Fields.DateOfBirth"): style="display: block;"></label>
                             <nop-date-picker asp-day-name="@Html.NameFor(x => x.DateOfBirthDay)"
                                              asp-month-name="@Html.NameFor(x => x.DateOfBirthMonth)"
                                              asp-year-name="@Html.NameFor(x => x.DateOfBirthYear)"
@@ -90,18 +117,29 @@
                         </div>
                     }
                     <div class="inputs">
-                        <label asp-for="Email" asp-postfix=":"></label>
-                        <input asp-for="Email" />
-                        <nop-required />
-                        <span asp-validation-for="Email"></span>
+                        <div style="display: flex; align-items: center; margin-left: 4%;margin-bottom: 0.5rem; font-weight: bold">
+                            <label asp-for="Email" asp-postfix=":" style="margin-right: 5px;"></label>
+                            <nop-required style="margin-left:-1%;" />
+                        </div>
+
+                        <input asp-for="Email" style="
+    margin-left: 44%;
+    width: 56%;
+           border-radius:5px;" />
+                      
+                        <span asp-validation-for="Email" style="
+    margin-left: 8%;
+"></span>
                     </div>
                     @if (Model.EnteringEmailTwice)
                     {
                         <div class="inputs">
-                            <label asp-for="ConfirmEmail" asp-postfix=":"></label>
+                            <label asp-for="ConfirmEmail" asp-postfix=":" style="display: block; margin-left:-5%;"></label>
                             <input asp-for="ConfirmEmail" />
                             <nop-required />
-                            <span asp-validation-for="ConfirmEmail"></span>
+                            <span asp-validation-for="ConfirmEmail" style="
+    margin-left: 6%;
+    "></span>
                         </div>
                     }
                     @if (Model.UsernamesEnabled)
@@ -120,7 +158,7 @@
                     }
                 </div>
             </div>
-            @if (Model.CompanyEnabled || Model.DisplayVatNumber)
+           @*  @if (Model.CompanyEnabled || Model.DisplayVatNumber)
             {
                 <div class="fieldset">
                     <div class="title">
@@ -130,7 +168,7 @@
                         @if (Model.CompanyEnabled)
                         {
                             <div class="inputs">
-                                <label asp-for="Company" asp-postfix=":"></label>
+                                <label asp-for="Company" asp-postfix=":" style="display: block; margin-left:-53%;"></label>
                                 <input asp-for="Company" />
                                 @if (Model.CompanyRequired)
                                 {
@@ -149,7 +187,7 @@
                         }
                     </div>
                 </div>
-            }
+            } *@
             @if (Model.StreetAddressEnabled ||
                 Model.StreetAddress2Enabled ||
                 Model.ZipPostalCodeEnabled ||
@@ -264,7 +302,7 @@
                         @if (Model.PhoneEnabled)
                         {
                             <div class="inputs">
-                                <label asp-for="Phone" asp-postfix=":"></label>
+                                <label asp-for="Phone" asp-postfix=":" style="margin-bottom: 5px;"></label>
                                 <input asp-for="Phone" />
                                 @if (Model.PhoneRequired)
                                 {
@@ -288,7 +326,7 @@
                     </div>
                 </div>
             }
-            @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0)
+          @*   @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0)
             {
                 <div class="fieldset">
                     <div class="title">
@@ -298,7 +336,7 @@
                         @if (Model.NewsletterEnabled)
                         {
                             <div class="inputs">
-                                <label asp-for="Newsletter" asp-postfix=":"></label>
+                                <label asp-for="Newsletter" asp-postfix=":" style="display: block; margin-left:-5%;"></label>
                                 <input asp-for="Newsletter" />
                                 <span asp-validation-for="Newsletter"></span>
                             </div>
@@ -309,13 +347,13 @@
                         }
                     </div>
                 </div>
-            }
+            } *@
             @if (Model.AllowCustomersToSetTimeZone)
             {
                 <div class="fieldset">
-                    <div class="title">
+@*                     <div class="title">
                         <strong>@T("Account.Preferences")</strong>
-                    </div>
+                    </div> *@
                     <div class="form-fields">
                         <div class="inputs">
                             <label asp-for="TimeZoneId" asp-postfix=":"></label>
@@ -326,22 +364,39 @@
                 </div>
             }
             <div class="fieldset">
-                <div class="title">
-                    <strong>@T("Account.YourPassword")</strong>
-                </div>
-                <div class="form-fields">
+                <div class="form-fields" style="margin-top: -31%; border: none;">
                     <div class="inputs">
-                        <label asp-for="Password" asp-postfix=":"></label>
-                        <input asp-for="Password" />
-                        <nop-required />
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem; font-weight: bold">
+
+                            <label asp-for="Phone" asp-postfix=":" style="display: block; margin-left: -62%; margin-bottom:5px;  @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en" ? "margin-left: -69%;" : "")"></label>
+                            <nop-required style="margin-left:-3%;" />
+                        </div>
+
+                        <input asp-for="Phone" style="margin-left: 1%; width: 99%; border-radius:5px;" />
+                      
+                        <span asp-validation-for="Phone" style="margin-left: 8%;"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem; font-weight: bold">
+                            <label asp-for="Password" asp-postfix=":" style="display: block; margin-left: -65%;margin-bottom: 5px; @(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en" ? "margin-left: -62%;" : "")"></label>
+                            <nop-required style="margin-left:-3%;" />
+                        </div>
+                        <input asp-for="Password" style="border-radius:5px;"/>
+                      
                         <span asp-validation-for="Password"></span>
                     </div>
+
                     <div class="inputs">
-                        <label asp-for="ConfirmPassword" asp-postfix=":"></label>
-                        <input asp-for="ConfirmPassword" />
-                        <nop-required />
-                        <span asp-validation-for="ConfirmPassword"></span>
+                        <div style="display: flex; align-items: center;  margin-bottom: 0.5rem; font-weight: bold">
+                        <label asp-for="ConfirmPassword" asp-postfix=":" style="display: block; margin-left: -43%; margin-bottom: 5px;"></label>
+                            <nop-required style="margin-left:-3%;" />
+                        </div>
+                        <input asp-for="ConfirmPassword" style="border-radius:5px;" />
+                       
+                        <span asp-validation-for="ConfirmPassword" style=" margin-left: -58%; "></span>
                     </div>
+
                     @if (Model.DisplayCaptcha)
                     {
                         <nop-captcha />
@@ -352,6 +407,7 @@
                     }
                 </div>
             </div>
+
 
             @if (Model.AcceptPrivacyPolicyEnabled || Model.GdprConsents.Count > 0)
             {
@@ -432,8 +488,8 @@
                 </div>
             }
 
-            <div class="buttons">
-                <button type="submit" name="register-button" id="register-button" class="button-1 register-next-step-button">@T("Account.Register.Button")</button>
+            <div class="buttons" style=" margin-top:-15%;">
+                <button type="submit" name="register-button" id="register-button" class="button-1 register-next-step-button" style="background-color:#e35c63;width: 91%;border-radius:5px;margin-left: 5%;">@T("Account.Register.Button")</button>
             </div>
         </form>
         <div class="external-authentication">

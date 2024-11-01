@@ -25446,3 +25446,61 @@ a {
   }
 }
 
+
+
+.gallery_content .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gallery_content .item a img {
+    transition: transform 0.3s ease;
+}
+
+    .gallery_content .item a img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+
+.product-grid .item-grid {
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+}
+.product-grid .item-box {
+    flex: 0 0 300px; /* Giảm từ 347px xuống 300px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+    .product-grid .item-box:hover {
+        transform: translateY(-5px); 
+    }
+
+.product-grid .title {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+/*    text-align: center;*/
+}
+
+/*.product-grid .picture img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+}
+
+*/
+/*26/10/2024*/
+
+
+

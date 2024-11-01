@@ -2,10 +2,12 @@
 @using Nop.Core
 @using Nop.Core.Domain.Customers
 
+@inject Nop.Services.Localization.ILanguageService languageService
+
 @inject IWebHelper webHelper
 @{
-    Layout = "_ColumnsOne";
-
+    // Layout = "_ColumnsOne";
+    Layout = "~/Views/Shared/NoHeaderFooter.cshtml";
     //title
     NopHtml.AddTitleParts(T("PageTitle.Login").Text);
     //page class
@@ -15,103 +17,64 @@
     var registerUrl = Url.RouteUrl("Register", new { returnUrl = this.Context.Request.Query["returnUrl"] }, webHelper.GetCurrentRequestProtocol());
 }
 <div class="page login-page">
-    <div class="page-title">
-        <h1>@T("Account.Login.Welcome")</h1>
+    <div class="page-title" style="display:flex;justify-content:center; width: -webkit-fill-available; border:none;">
+        <div class="header-logo">
+            <a class="logo-footer" href="#" title="Home" style="text-decoration: none;  padding-top:10%;">
+                <img class="image-style-none" style="width:187px;height:43px" src="../Themes/DefaultClean/Content/images/Remove-bg.ai_1729840192443.png" alt="Bouygues Construction">
+            </a>
+        </div>
     </div>
-    @await Html.PartialAsync("_ExternalAuthentication.Errors")
-    <div class="page-body">
-        @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.LoginTop, additionalData = Model })
-        <div class="customer-blocks">
-            @if (Model.RegistrationType == UserRegistrationType.Disabled)
-            {
-                <div class="new-wrapper">
-                    <div class="title">
-                        @T("Account.Register")
+
+    <div class="page-body" style="margin-top: 15%;margin-left: 37%;margin-right: -12%;">
+
+        <div class="customer-blocks" style="margin-right:23%;margin-top: -31%;margin-left: -152%;">
+            <div class="returning-wrapper fieldset" style="margin-right: 12%; margin-top: 6%;">
+                <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" autocomplete="off" style="margin-left: 18%;">
+
+                    <div asp-validation-summary="ModelOnly" class="message-error" style="
+    margin-left: 6%;
+    margin-right: -30%;
+">
+                        @T("Account.Login.Unsuccessful")
                     </div>
-                    <div class="text">
-                        @T("Account.Register.Result.Disabled")
+                    <div class="title" style="/* text-align: center; */ margin-bottom: 1rem;">
+                        <strong style="font-size: 1.5rem; margin-left:-6%;">@T("Account.Login")</strong>
+                        <p style="margin-top: 0.5rem; color: #555; font-size: 0.875rem; width:284px;  margin-left:-6%; ">  @T("Account.Login.NewCustomerText")</p>
                     </div>
-                </div>
-            }
-            else if (Model.CheckoutAsGuest)
-            {
-                <div class="new-wrapper checkout-as-guest-or-register-block">
-                    <div class="title">
-                        <strong>@T("Account.Login.CheckoutAsGuestOrRegister")</strong>
-                    </div>
-                    <div class="text">
-                        @await Component.InvokeAsync(typeof(TopicBlockViewComponent), new { systemName = "CheckoutAsGuestOrRegister" })
-                    </div>
-                    <div class="buttons">
-                        <button type="button" class="button-1 checkout-as-guest-button" onclick="location.href='@Url.RouteUrl("Checkout")'">@T("Account.Login.CheckoutAsGuest")</button>
-                        <button type="button" class="button-1 register-button" onclick="location.href='@registerUrl'">@T("Account.Register")</button>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="new-wrapper register-block">
-                    <div class="title">
-                        <strong>@T("Account.Login.NewCustomer")</strong>
-                    </div>
-                    <div class="text">
-                        @T("Account.Login.NewCustomerText")
-                    </div>
-                    <div class="buttons">
-                        <button type="button" class="button-1 register-button" onclick="location.href='@registerUrl'">@T("Account.Register")</button>
-                    </div>
-                </div>
-            }
-            <div class="returning-wrapper fieldset">
-                <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" autocomplete="off">
-                    <div asp-validation-summary="ModelOnly" class="message-error">@T("Account.Login.Unsuccessful")</div>
-                    <div class="title">
-                        <strong>@T("Account.Login.ReturningCustomer")</strong>
-                    </div>
-                    <div class="form-fields">
-                        @if (Model.UsernamesEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="Username" asp-postfix=":"></label>
-                                <input asp-for="Username" class="username" autofocus="autofocus" />
-                                <span asp-validation-for="Username"></span>
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="inputs">
-                                <label asp-for="Email" asp-postfix=":"></label>
-                                <input asp-for="Email" class="email" autofocus="autofocus" />
-                                <span asp-validation-for="Email"></span>
-                            </div>
-                        }
-                        <div class="inputs">
-                            <label asp-for="Password" asp-postfix=":"></label>
-                            <input asp-for="Password" class="password" />
+
+
+                    <div class="form-fields" style="width:fit-content; padding-top:unset;">
+                        <div class="inputs" style="width: 100%;margin-left: -23%;">
+                            <label asp-for="Email" asp-postfix=":" class="form-label" style="display: block; margin-bottom: 0.5rem; font-weight: bold; margin-left:22%;"></label>
+                            <input asp-for="Email" class="email form-control" autofocus="autofocus" style="width:100%; padding: 0.5rem; margin-left:43%; border-radius:5px;" />
+                            <span asp-validation-for="Email" class="text-danger" style="display: block; margin-top: 0.5rem; margin-left:33%"></span>
+                        </div>
+                        <div class="inputs" style="width: 100%;margin-left: -23%;">
+                            <label asp-for="Password" asp-postfix=":" style="display: block; margin-bottom: 0.5rem; font-weight: bold;  margin-left:30%;"></label>
+                            <input asp-for="Password" class="password" style="margin-left:43%; border-radius:5px;" />
                             <span asp-validation-for="Password"></span>
                         </div>
-                        <div class="inputs reversed">
-                            <input asp-for="RememberMe" />
-                            <label asp-for="RememberMe"></label>
-                            <span class="forgot-password">
-                                <a asp-route="PasswordRecovery">@T("Account.Login.ForgotPassword")</a>
+                        <div class="inputs reversed"@*  style="margin-left:20%;" *@>
+                            <@* input asp-for="RememberMe" />
+                            <label asp-for="RememberMe"></label> *@
+                            <span class="forgot-password"@*  style="Forgot password?" *@>
+                                <a asp-route="PasswordRecovery" style="margin-right:-256%">@T("Account.Login.ForgotPassword")</a>
                             </span>
                         </div>
-                        @if (Model.DisplayCaptcha)
-                        {
-                            <nop-captcha />
-                        }
                     </div>
-                    <div class="buttons">
-                        <button type="submit" class="button-1 login-button">@T("Account.Login.LoginButton")</button>
+                    <div class="buttons" style="margin-right: -33%; padding-top:unset;">
+                        <button type="submit" class="button-1 login-button" style="background-color: #e35c63;width:97%;border-radius:5px;">@T("Account.Login.LoginButton")</button>
+                        <div class="register-link" style="margin-top: 10px; text-align: center;">
+                            <p>
+                                @T("Account.backinstocksubscriptions") <a href="@registerUrl">@T("Account.Register")</a>
+                            </p>
+                        </div>
                     </div>
                 </form>
+            
             </div>
         </div>
-        <div class="external-authentication">
-            @await Component.InvokeAsync(typeof(ExternalMethodsViewComponent), "ExternalAuthentication")
-        </div>
-        @await Component.InvokeAsync(typeof(TopicBlockViewComponent), new { systemName = "LoginRegistrationInfo" })
-        @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.LoginBottom, additionalData = Model })
     </div>
+
+
 </div>
