@@ -13,30 +13,10 @@
         };
         AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart', localized_data);
     </script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DFD1NPCVYH"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-		gtag('config', 'G-DFD1NPCVYH');
-	</script>
-	<div class="header-menu sticky-header" style="padding-left:4.3%">
-		@* <div class="header-logo cursor-pointer">
-			<img layout="fill" src="/Themes/DefaultClean/Content/images/logo1.png" alt="logo" title="logo" placeholder="blur"
-				 href="index.html" />
-		</div> *@
+    <div class="header-menu">
         @await Component.InvokeAsync(typeof(TopMenuViewComponent))
-		<ul class="top-menu notmobile">
-			
-			@* <a class="header-menu__item" href="customer.html">
-				<span class="change"> Hội viên thân thiết</span>
-			</a>
-			<a class="header-menu__item" href="detail.html">
-				<span class="change">Thương hiệu thành viên</span>
-			</a> *@
-		</ul>
     </div>
-	<div class="master-wrapper-content" id="main" role="main" style=" margin-bottom:-7%">
+    <div class="master-wrapper-content" id="main" role="main">
         @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.ContentBefore })
 
         @if (IsSectionDefined("Breadcrumb"))

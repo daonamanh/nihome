@@ -1,4 +1,4 @@
-﻿
+
 
 /*********** CSS RESET **********/
 
@@ -70,42 +70,14 @@ script {
 /*********** GLOBAL STYLES **********/
 
 
-/*custome font khoaqd
-*/
+
 body {
-    max-width: 100%;
-    overflow-x: hidden;
-    background-color: #fff;
-    font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif; 
-    font-size: 14px; 
-    color: #777;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #fff;
+  font: normal 14px Arial, Helvetica, sans-serif;
+  color: #777;
 }
-
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lora', serif;
-    font-weight: bold; 
-    color: #333;
-}
-
-
-a {
-    font-family: 'Open Sans', sans-serif; 
-    color: #007bff;
-    text-decoration: none; 
-}
-
-    a:hover {
-        color: #0056b3; 
-        text-decoration: underline; 
-    }
-
-.product-grid .item-box {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    color: #555;
-}
-
 
 h1, h2, h3, h4, h5, h6 {
   color: #444;
@@ -185,7 +157,6 @@ label, label + * {
   z-index: 0;
   width: 90%;
   margin: 0 auto;
-  margin-bottom:-7%;
 }
 
 .master-column-wrapper {
@@ -240,7 +211,7 @@ label, label + * {
 
 .center-1 .page-title,
 .center-1 .title {
- /* text-align: center;*/
+  text-align: center;
 }
 
 .buttons {
@@ -315,7 +286,7 @@ label, label + * {
 .form-fields {
   position: relative;
   border-top: 1px solid #e6e6e6;
-/*  background-color: #f9f9f9;*/
+  background-color: #f9f9f9;
   padding: 30px 15px;
 }
 
@@ -924,7 +895,6 @@ label, label + * {
   position: relative;
   z-index: 1;
   border-bottom: 1px solid #ddd;
-  margin-left:-5%;
 }
 
 .header-selectors-wrapper {
@@ -1019,7 +989,6 @@ label, label + * {
   position: relative;
   z-index: 0;
   padding: 35px 0;
-  margin-left: -5%;
 }
 
 .header-logo {
@@ -1060,8 +1029,7 @@ label, label + * {
   min-width: 86px;
   height: 36px;
   border: none;
-  /*background-color: #4ab2f1;*/
-  background-color:lightgray;
+  background-color: #4ab2f1;
   padding: 0 15px;
   text-align: center;
   color: #fff;
@@ -1135,9 +1103,8 @@ label, label + * {
 
 
 .footer {
-  background-color: rgb(0,0,0);
+  background-color: #eee;
   text-align: center;
-  color: #fff;
 }
 
 .footer-upper {
@@ -1161,8 +1128,7 @@ label, label + * {
   background: #4ab2f1 url('../images/toggle-white.png') right center no-repeat;
   padding: 10px 15px;
   font-size: 20px;
-  /*color: #fff;*/
-  color: #F16A24;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -1202,7 +1168,7 @@ label, label + * {
 
 .follow-us .social ul {
   margin: 0 0 30px;
- /* border-bottom: 1px solid #ddd;*/
+  border-bottom: 1px solid #ddd;
   padding: 0 0 30px;
   font-size: 0;
 }
@@ -1732,13 +1698,12 @@ label, label + * {
 .item-box .picture {
   z-index: 1;
   background-color: #fff;
-  /*margin: 0 0 20px;*/
+  margin: 0 0 20px;
 }
 
 .item-box .picture a {
   display: block;
   position: relative;
-  height: 243px;
 }
 
 .item-box .picture a:focus {
@@ -1763,8 +1728,6 @@ label, label + * {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   -webkit-transform: translateZ(0) scale(1.0, 1.0);
-  height: 243px;
-  width: 100%;
 }
 
 .item-box:hover .picture a img {
@@ -1779,9 +1742,8 @@ label, label + * {
   margin: 0 0 10px;
   font-size: 17px;
   line-height: 1.2;
-  font-weight: bold;
-  /*color: #4ab2f1;*/
-  color: black;
+  font-weight: normal;
+  color: #4ab2f1;
 }
 
 .item-box .product-title a {
@@ -1958,7 +1920,7 @@ label, label + * {
 
 .product-grid,
 .product-list {
-  /*margin: 0 0 50px;*/
+  margin: 0 0 50px;
 }
 
 .product-grid .title {
@@ -3425,7 +3387,7 @@ label, label + * {
 }
 
 .home-page .topic-block {
-  //margin: 0 0 50px;
+  margin: 0 0 50px;
 }
 
 .popup-window .topic-page {
@@ -3768,7 +3730,7 @@ label, label + * {
 }
 
 .login-page .returning-wrapper .buttons {
-/*  background-color: #fff;*/
+  background-color: #fff;
   padding: 30px 0;
 }
 
@@ -6885,13 +6847,6 @@ label, label + * {
   .header-menu {
     width: 92.5%;
   }
-  .sticky-header {
-    position: -webkit-sticky; /* For Safari */
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Ensure it stays above other content */
-    background-color: #fff; /* Optional: add background color to avoid content behind the header */
-  }
 
 
   /*** GLOBAL TABLES ***/
@@ -6926,8 +6881,7 @@ label, label + * {
   }
 
   .search-box input.search-box-text {
-    /*width: 280px;*/
-    width:132px;
+    width: 280px;
   }
 
   .ui-autocomplete {
@@ -7131,14 +7085,13 @@ label, label + * {
     vertical-align: top;
   }
 
-    .footer-block .title {
-      margin: 0 0 15px;
-      background: none;
-      padding: 0;
-      /*color: #444;*/
-      color: #F16A24;
-      cursor: auto;
-    }
+  .footer-block .title {
+    margin: 0 0 15px;
+    background: none;
+    padding: 0;
+    color: #444;
+    cursor: auto;
+  }
 
   .footer-block .list {
     display: block !important; /* prevents toggle display:none on resize */
@@ -8097,7 +8050,6 @@ label, label + * {
     border-left: 1px solid #ddd;
     padding: 0 15px;
     vertical-align: middle;
-    text-decoration:none;
   }
 
   .header-menu > ul > li:first-child {
@@ -8183,8 +8135,7 @@ label, label + * {
 
   .footer-block {
     float: left;
-    /*width: 220px;*/
-    width: 326px;
+    width: 220px;
     margin: 0;
   }
 
@@ -8236,9 +8187,8 @@ label, label + * {
   }
 
   .footer-info {
-    /*float: right;*/
+    float: right;
     line-height: 32px;
-    color: #fff;
   }
 
   .footer-powered-by {
@@ -8317,8 +8267,7 @@ label, label + * {
   .home-page .product-grid .item-box,
   .product-details-page .product-grid .item-box,
   .shopping-cart-page .product-grid .item-box {
-    /*width: 24%;*/
-    width: 100%;
+    width: 24%;
     margin: 0 0.5% 50px;
   }
 
@@ -8750,23 +8699,16 @@ label, label + * {
 
 
   .header-menu {
-    /*width: 1200px;*/
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding-left: 20px;
+    width: 1200px;
   }
 
   .header-menu > ul > li {
     padding: 0 20px;
-    margin-bottpm: 15px;
   }
 
   .header-menu > ul > li > a,
   .header-menu > ul > li > span {
     font-size: 18px;
-    text-decoration:none;
   }
 
 
@@ -8779,8 +8721,7 @@ label, label + * {
   }
 
   .footer-block {
-    /*width: 280px;*/
-    width: 326px;
+    width: 280px;
   }
 
   .footer-lower {
@@ -8942,11 +8883,3 @@ a.skip:hover {
   width: 100%;
   font-size: 16px;
 }
-
-
-
-
-
-
-
-

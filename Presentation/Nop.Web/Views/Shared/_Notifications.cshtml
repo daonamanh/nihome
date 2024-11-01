@@ -76,6 +76,6 @@
 </div>
 <div id="dialog-notifications-warning" role="alert" aria-live="assertive" aria-atomic="true" title="@T("Common.Warning")" style="display:none;">
 </div>
-@* <div id="bar-notification" class="bar-notification-container" role="status" aria-live="polite" aria-atomic="true" data-close="@T("Common.Close")">
-</div> *@
+<div id="bar-notification" class="bar-notification-container" role="status" aria-live="polite" aria-atomic="true" data-close="@T("Common.Close")">
+</div>
 @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.Notifications })
