@@ -57,7 +57,6 @@
     <meta name="generator" content="nopCommerce" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     @NopHtml.GenerateHeadCustom()
-    @*This is used so that themes can inject content into the header*@
     @await Html.PartialAsync("Head")
 
     @NopHtml.GenerateCssFiles()
@@ -66,16 +65,16 @@
     @NopHtml.GenerateCanonicalUrls()
     @await Component.InvokeAsync(typeof(NewsRssHeaderLinkViewComponent))
     @await Component.InvokeAsync(typeof(BlogRssHeaderLinkViewComponent))
-    @*Insert favicon and app icons head code*@
     @await Component.InvokeAsync(typeof(FaviconViewComponent))
     @NopHtml.GenerateScripts(ResourceLocation.Head)
     @NopHtml.GenerateInlineScripts(ResourceLocation.Head)
-    <!--Powered by nopCommerce - https://www.nopCommerce.com-->
-    @Html.Raw(commonSettings.HeaderCustomHtml)
+
+   <link rel="stylesheet" href="@Url.Content("~/Themes/DefaultClean/Content/css/login_reponsive.css")" />
+
+
 </head>
 <body>
     <nop-antiforgery-token />
-
 
     <div class="row auth-inner m-0"
          style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-image: url('https://nicon.vn/content/images/thumbs/0005757.jpeg'); background-size: cover; background-position: center;">
@@ -85,18 +84,15 @@
             @RenderBody()
         </div>
 
-      
-        <div style="position: absolute; bottom: 20px; right: 20px;">
+        <div style="position: fixed; bottom: 20px; right: 20px;">
             @await Component.InvokeAsync("LanguageSelector")
         </div>
+
     </div>
-
-
 
     @NopHtml.GenerateScripts(ResourceLocation.Footer)
     @NopHtml.GenerateInlineScripts(ResourceLocation.Footer)
 
     @Html.Raw(commonSettings.FooterCustomHtml)
 </body>
-
 </html>
